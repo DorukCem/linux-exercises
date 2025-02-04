@@ -16,7 +16,7 @@ use nix::{
 fn main() {
     let mut args: Vec<_> = std::env::args().into_iter().collect();
     if args.len() != 3 {
-        println!("Expected 3 arguments")
+        println!("Expected 2 arguments")
     }
 
     let output = args.remove(2);
@@ -42,11 +42,13 @@ fn main() {
         if bytes_read == 0 {
             break;
         }
-        write(
+        let bytes_written = write(
             unsafe { BorrowedFd::borrow_raw(output_fd) },
             &buf[..bytes_read],
         )
         .unwrap();
+
+        assert_eq!(bytes_read, bytes_written);
 
         // Write to stdout
         write(unsafe { BorrowedFd::borrow_raw(STDOUT_FILENO) }, &buf[..bytes_read]).unwrap();
