@@ -1,0 +1,1 @@
+Solutions to some of the exercises in the book [The Linux Programming Interface](https://broman.dev/download/The%20Linux%20Programming%20Interface.pdf)
