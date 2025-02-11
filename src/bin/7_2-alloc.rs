@@ -1,4 +1,4 @@
-use nix::libc::{brk, sbrk};
+use nix::libc::sbrk;
 
 //  sbrk() increments the program's data space by increment bytes.
 //  Calling sbrk() with an increment of 0 can be used to find the current location of the program break.
