@@ -1,7 +1,9 @@
 use std::os::fd::AsRawFd;
 
 use nix::{
-    libc::BUFSIZ, sys::wait::waitpid, unistd::{self, close, fork, pipe, read, write, ForkResult}
+    libc::BUFSIZ,
+    sys::wait::waitpid,
+    unistd::{fork, pipe, read, write, ForkResult},
 };
 
 fn main() {
