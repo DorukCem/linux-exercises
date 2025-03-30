@@ -1,4 +1,5 @@
 /* This code creates a race condition and therefore at the end num is smaller then it should be */
+#![allow(static_mut_refs)]
 
 use std::{ffi::c_void, ptr};
 

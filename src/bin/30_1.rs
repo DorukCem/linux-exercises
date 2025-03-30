@@ -1,9 +1,15 @@
 /* Sync with mutex */
 
-use std::{ffi::c_void, ptr::{self, addr_of_mut}};
+#![allow(static_mut_refs)]
+use std::{
+    ffi::c_void,
+    ptr::{self, addr_of_mut},
+};
 
-use nix::libc::{pthread_create, pthread_join, pthread_mutex_lock, pthread_mutex_t, pthread_mutex_unlock, PTHREAD_MUTEX_INITIALIZER};
-
+use nix::libc::{
+    pthread_create, pthread_join, pthread_mutex_lock, pthread_mutex_t, pthread_mutex_unlock,
+    PTHREAD_MUTEX_INITIALIZER,
+};
 static mut NUM: u64 = 0;
 static mut MUTEX: pthread_mutex_t = PTHREAD_MUTEX_INITIALIZER;
 
