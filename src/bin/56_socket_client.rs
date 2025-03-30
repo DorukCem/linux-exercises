@@ -25,6 +25,7 @@ fn main() {
     )
     .expect("Expected to connect to server");
 
+    // Since it is not possible to read from standart as non blocking in on all platform
     let (sender, reciever) = channel();
     std::thread::spawn(move || loop {
         let mut buffer = String::new();
